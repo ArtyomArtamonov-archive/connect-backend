@@ -1,6 +1,11 @@
 from django.shortcuts import render
 from rest_framework import generics
+from .serializers import *
 
-# Create your views here.
+
 class EventCreateView(generics.CreateAPIView):
-    pass
+    serializer_class = EventDetailSerializer
+
+
+class TagCreateView(generics.CreateAPIView):
+    serializer_class = TagDetailSerializer
