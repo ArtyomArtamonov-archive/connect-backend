@@ -11,8 +11,7 @@ class EventsListView(generics.ListAPIView):
     search_fields = ['name']
     filter_backends = (filters.SearchFilter,)
     queryset = Event.objects.all()
-    serializer_class = EventsListSerializer
-
+    serializer_class = EventDetailSerializer
 
 
 class EventDetailView(generics.RetrieveUpdateDestroyAPIView):
