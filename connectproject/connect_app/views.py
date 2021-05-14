@@ -1,6 +1,7 @@
 from rest_framework import generics
 from rest_framework import filters
 from .serializers import *
+from .filters import *
 
 
 class EventCreateView(generics.CreateAPIView):
@@ -9,7 +10,8 @@ class EventCreateView(generics.CreateAPIView):
 
 class EventsListView(generics.ListAPIView):
     search_fields = ['name']
-    filter_backends = (filters.SearchFilter,)
+    filter_backends = (filters.SearchFilter,filters.OrderingFilter)
+    ordering_fields = ['event_time']
     queryset = Event.objects.all()
     serializer_class = EventDetailSerializer
 
