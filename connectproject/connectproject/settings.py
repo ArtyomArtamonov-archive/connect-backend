@@ -40,8 +40,9 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'drf_yasg2',
-    'connect_app',
     'django_filters',
+
+    'connect_app',
 ]
 
 REST_FRAMEWORK = {
@@ -107,7 +108,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/

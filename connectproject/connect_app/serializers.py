@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import *
+from .mixins import OrganizerMixin
 
 
 class TagDetailSerializer(serializers.ModelSerializer):
@@ -10,6 +11,10 @@ class TagDetailSerializer(serializers.ModelSerializer):
 
 class EventDetailSerializer(serializers.ModelSerializer):
     tags = TagDetailSerializer(many=True)
+    organizer = serializers.SerializerMethodField()
+
+    def get_organizer(self, instance):
+        return instance.organizer.email
     
     class Meta:
         model = Event
