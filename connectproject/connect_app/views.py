@@ -1,5 +1,5 @@
 from rest_framework import generics
-from rest_framework import filters
+from rest_framework.filters import OrderingFilter
 from django_filters import rest_framework
 from .serializers import *
 from .filters import *
@@ -11,7 +11,7 @@ class EventCreateView(generics.CreateAPIView):
 
 class EventsListView(generics.ListAPIView):
     search_fields = ['name']
-    filter_backends = (rest_framework.DjangoFilterBackend,)
+    filter_backends = (rest_framework.DjangoFilterBackend,OrderingFilter)
     filterset_class = EventFilter
     ordering_fields = ['event_time']
     queryset = Event.objects.all()
