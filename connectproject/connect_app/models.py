@@ -15,7 +15,7 @@ class Event(models.Model):
     longitude = models.FloatField()
     latitude = models.FloatField()
     event_time = models.DateTimeField()
-    organizer_email = models.ForeignKey(user, on_delete=models.CASCADE)
+    organizer = models.ForeignKey(user, on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tag)
 
 

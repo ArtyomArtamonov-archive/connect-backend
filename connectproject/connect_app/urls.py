@@ -7,4 +7,5 @@ urlpatterns = [
     path('events/all/', EventsListView.as_view()),
     path('events/detail/<int:pk>', EventDetailView.as_view()),
     path('tags/create/', TagCreateView.as_view()),
+    path('tags/all/', TagListView.as_view()),
 ]
