@@ -1,5 +1,6 @@
 from rest_framework import generics
 from rest_framework.filters import OrderingFilter
+from rest_framework.permissions import IsAdminUser, IsAuthenticated
 from django_filters import rest_framework
 from .serializers import *
 from .filters import *
@@ -7,6 +8,7 @@ from .filters import *
 
 class EventCreateView(generics.CreateAPIView):
     serializer_class = EventDetailSerializer
+    permission_classes = [IsAdminUser]
 
 
 class EventsListView(generics.ListAPIView):
